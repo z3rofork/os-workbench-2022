@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
       pstree_version();
       break;
     case 'h':
-      usage();
+      usage(argv[0]);
     default:      
       //usage(argv[0]);
       exit(EXIT_FAILURE);
