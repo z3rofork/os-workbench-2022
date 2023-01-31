@@ -3,11 +3,11 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
-#define _POSIX_SOURCE
+//#define _POSIX_SOURCE
 #include <dirent.h>
 #include <errno.h>
 #include <sys/types.h>
-#undef _POSIX_SOURCE
+//#undef _POSIX_SOURCE
 
 
 #define BUF_SIZE 1024
