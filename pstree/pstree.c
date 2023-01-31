@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
   // }
   // assert(!argv[argc]);
   int opt;
-  const char *optString="p::n::V::";
+  const char *optString="p::n::V::h::";
   while ((opt = getopt(argc,argv,optString)) != -1)
   {
     /* code */
@@ -40,18 +40,19 @@ int main(int argc, char *argv[]) {
     case 'V':
       pstree_version();
       break;
-
+    case 'h':
+      usage();
     default:      
       //usage(argv[0]);
       exit(EXIT_FAILURE);
     }
   }
   list_process();
-  if(optind >= argc){
-    fprintf(stderr,"Expected argument after options\n");
-    usage(argv[0]);
-    exit(EXIT_FAILURE);
-  }
+  // if(optind >= argc){
+  //   fprintf(stderr,"Expected argument after options\n");
+  //   usage(argv[0]);
+  //   exit(EXIT_FAILURE);
+  // }
 
   exit(EXIT_SUCCESS);
   return 0;
