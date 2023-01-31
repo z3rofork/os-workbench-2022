@@ -42,7 +42,7 @@ int main(int argc, char *argv[]) {
       break;
 
     default:      
-      usage(argv[0]);
+      //usage(argv[0]);
       exit(EXIT_FAILURE);
     }
   }
