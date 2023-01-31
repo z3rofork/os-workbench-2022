@@ -47,10 +47,10 @@ int main(int argc, char *argv[]) {
 
 void Usage(const char *filename){
   fprintf(stderr,"Usage: %s [-p, -n, -V]\n",filename);
-  printf("把系统中的进程按照父亲-孩子的树状结构打印到终端。");
-  printf("-p \t--show-pids: 打印每个进程的进程号。");
+  printf("把系统中的进程按照父亲-孩子的树状结构打印到终端。\n");
+  printf("-p \t--show-pids: 打印每个进程的进程号。\n");
   printf("-n \t--numeric-sort: 按照pid的数值从小到大顺序输出一个进程的直接孩子。\n");
-  printf("-V \t--version: 打印版本信息。"); 
+  printf("-V \t--version: 打印版本信息。\n"); 
 }
 
 
