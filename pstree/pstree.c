@@ -33,6 +33,12 @@ int main(int argc, char *argv[]) {
       exit(EXIT_FAILURE);
     }
   }
+
+  if(optind >= argc){
+    fprintf("Expected argument after options\n");
+    exit(EXIT_FAILURE);
+  }
+
   exit(EXIT_SUCCESS);
   return 0;
 }
@@ -48,5 +54,5 @@ void Usage(const char *filename){
 
 
 void Pstree_Version(){
-  printf("pstree (simple) 1.0 Copyright (C) 2023-2023 \nThis is free software, and you are welcome to redistribute it under the terms of the GNU General Public License. \nFor more information about these matters, see the files named COPYING.");
+  printf("pstree (simple) 1.0 Copyright (C) 2023-2023 \nThis is free software, and you are welcome to redistribute it under the terms of the GNU General Public License. \nFor more information about these matters, see the files named COPYING.\n");
 }
