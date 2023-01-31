@@ -35,7 +35,7 @@ int main(int argc, char *argv[]) {
   }
 
   if(optind >= argc){
-    fprintf("Expected argument after options\n");
+    fprintf(stderr,"Expected argument after options\n");
     exit(EXIT_FAILURE);
   }
 
