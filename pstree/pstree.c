@@ -12,11 +12,6 @@
 
 #define BUF_SIZE 1024
 
-// declare function
-void usage(const char *filename);
-void pstree_version();
-void list_process();
-void getInfoByPid(pid_t, struct t_process);
 
 // record rhe process name , pid and parent's pid
 struct t_process
@@ -26,6 +21,14 @@ struct t_process
     pid_t pid;   
     pid_t ppid;
 } t_process, *pt_process;
+
+// declare function
+void usage(const char *filename);
+void pstree_version();
+void list_process();
+void getInfoByPid(pid_t, struct t_process);
+
+
 
 int main(int argc, char *argv[]) {
   // for (int i = 0; i < argc; i++) {
