@@ -18,6 +18,14 @@ void pstree_version();
 void list_process();
 void getNameByPid(pid_t pid, char *task_name);
 
+// record rhe process name , pid and parent's pid
+struct t_process
+{
+    /* data */
+    char name[50];
+    pid_t pid;   
+    pid_t ppid;
+} t_process, *pt_process;
 
 int main(int argc, char *argv[]) {
   // for (int i = 0; i < argc; i++) {
@@ -81,11 +89,14 @@ pd = opendir("/proc");
 while ((pdir = readdir(pd)) != NULL)
     {
         /* code */
+        struct t_process process;
         char proc_name[50];
         int pid = atoi(pdir->d_name);
         if(pid != 0){
-       getNameByPid(pid,proc_name);
-        printf("%s\t %s\n",pdir->d_name,proc_name);   
+       getInfoByPid(pid,&process);
+        //printf("%s\t %s\n",pdir->d_name,proc_name);
+        printf("Name:%s\t Pid:%s\t PPid:%s\t\n",process.name,process.pid,process.ppid);
+
         }
   }
 closedir(pd);
@@ -99,19 +110,30 @@ closedir(pd);
 // return 0;
 }
 
-void getNameByPid(pid_t pid, char *task_name) {
-    char proc_pid_path[BUF_SIZE];
-    char buf[BUF_SIZE];
 
-    sprintf(proc_pid_path, "/proc/%d/status", pid);
-    //printf("%s\n",proc_pid_path);
+
+ 
+void getInfoByPid(pid_t pid, struct t_process *process) {
+    char proc_pid_path[50];
+    char task_name[50];
+    char buf[BUF_SIZE];
+    int apid,ppid;
+    sprintf(proc_pid_path, "/proc/%d/stat", pid);
     FILE* fp = fopen(proc_pid_path, "r");
     if(NULL != fp){
-        if( fgets(buf, BUF_SIZE-1, fp)== NULL ){
-            printf("fp == null\n");
-            fclose(fp);
-        }
-        fclose(fp);
-        sscanf(buf, "%*s %s", task_name);
-    }
+       if( fgets(buf, BUF_SIZE-1, fp)== NULL ){
+           fclose(fp);
+       }
+       fclose(fp);
+       //printf("%s\n",buf); 
+       sscanf(buf, "%d %s %*s %d\n",&apid,task_name,&ppid);
+
+      //size_t length = sizeof(task_name)/sizeof(task_name[0]);
+      //printf("%ld\n",length);
+       strcpy(process->name,task_name);
+       //process->name = task_name;
+       process->pid = apid;
+       process->ppid = ppid;
+       //printf("%d %s %d\n",apid,task_name,ppid);
+     }
  }
