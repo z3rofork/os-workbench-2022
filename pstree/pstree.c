@@ -47,6 +47,7 @@ int main(int argc, char *argv[]) {
       /* code */
       break;
     case 'n':
+      list_process();
       break;
     case 'V':
       pstree_version();
