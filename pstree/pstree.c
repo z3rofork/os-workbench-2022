@@ -26,7 +26,7 @@ struct t_process
 void usage(const char *filename);
 void pstree_version();
 void list_process();
-void getInfoByPid(pid_t, struct t_process);
+void getInfoByPid(pid_t, struct t_process *);
 
 
 
@@ -98,7 +98,7 @@ while ((pdir = readdir(pd)) != NULL)
         if(pid != 0){
        getInfoByPid(pid,&process);
         //printf("%s\t %s\n",pdir->d_name,proc_name);
-        printf("Name:%s\t Pid:%s\t PPid:%s\t\n",process.name,process.pid,process.ppid);
+        printf("Name:%s\t Pid:%d\t PPid:%d\t\n",process.name,process.pid,process.ppid);
 
         }
   }
