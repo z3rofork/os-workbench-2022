@@ -16,7 +16,7 @@
 void usage(const char *filename);
 void pstree_version();
 void list_process();
-void getInfoByPid(pid_t pid, struct t_process *process);
+void getInfoByPid(pid_t, struct t_process);
 
 // record rhe process name , pid and parent's pid
 struct t_process
