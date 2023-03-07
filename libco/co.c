@@ -1,7 +1,7 @@
 #include "co.h"
 #include <stdlib.h>
 #include <setjmp.h>
-#include <unistd.h>
+#include <stdint.h>
 #include <sys/types.h>
 
 #define STACK_SIZE 1024
