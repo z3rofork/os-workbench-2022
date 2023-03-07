@@ -1,6 +1,12 @@
 #include "co.h"
 #include <stdlib.h>
 
+#ifdef LOCAL_MACHINE
+  #define debug() printf(__VAR_ARGS__)
+#else
+  #define debug()
+#endif 
+
 struct co {
 };
 
